@@ -1,53 +1,98 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="id">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>My Portfolio</title>
+    <title>Portofolio Saya</title>
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
     <header>
-        <nav>
-            <ul>
-                <li><a href="#about">About Me</a></li>
-                <li><a href="#contact">Contact Me</a></li>
-                <li><a href="#projects">My Projects</a></li>
-            </ul>
-        </nav>
+        <div class="container">
+            <h1>Nama Anda</h1>
+            <nav>
+                <ul>
+                    <li><a href="#about">Tentang Saya</a></li>
+                    <li><a href="#projects">Hasil Proyek</a></li>
+                    <li><a href="#tools">Tools</a></li>
+                    <li><a href="#contact">Kontak Saya</a></li>
+                </ul>
+            </nav>
+        </div>
     </header>
-    <main>
-        <section id="about">
-            <h1>About Me</h1>
-            <p>Welcome to my portfolio! I am a passionate developer with a love for creating modern web applications.</p>
-        </section>
-        <section id="projects">
-            <h1>My Projects</h1>
-            <div class="project">
-                <h2>Project Title 1</h2>
-                <p>Description of project 1.</p>
+
+    <section id="about" class="section">
+        <div class="container">
+            <h2>Tentang Saya</h2>
+            <img src="images/profile.jpg" alt="Profile" class="profile-img">
+            <p>Selamat datang di portofolio saya! Saya adalah seorang [profesi Anda] dengan pengalaman di [bidang keahlian].</p>
+        </div>
+    </section>
+
+    <section id="projects" class="section">
+        <div class="container">
+            <h2>Hasil Proyek Saya</h2>
+            <div class="project-grid">
+                <div class="project-card">
+                    <img src="images/project1.jpg" alt="Project 1">
+                    <h3>Proyek 1</h3>
+                    <p>Deskripsi singkat tentang proyek 1.</p>
+                </div>
+                <div class="project-card">
+                    <img src="images/project2.jpg" alt="Project 2">
+                    <h3>Proyek 2</h3>
+                    <p>Deskripsi singkat tentang proyek 2.</p>
+                </div>
+                <div class="project-card">
+                    <img src="images/project3.jpg" alt="Project 3">
+                    <h3>Proyek 3</h3>
+                    <p>Deskripsi singkat tentang proyek 3.</p>
+                </div>
             </div>
-            <div class="project">
-                <h2>Project Title 2</h2>
-                <p>Description of project 2.</p>
+        </div>
+    </section>
+
+    <section id="tools" class="section">
+        <div class="container">
+            <h2>Tools</h2>
+            <div class="tool-grid">
+                <div class="tool-card">
+                    <h3>Kalkulator</h3>
+                    <input type="number" id="calcInput" placeholder="Masukkan angka">
+                    <button onclick="calculate()">Hitung</button>
+                    <p id="calcResult"></p>
+                </div>
+                <div class="tool-card">
+                    <h3>Weather Tool</h3>
+                    <input type="text" id="city" placeholder="Masukkan nama kota">
+                    <button onclick="getWeather()">Cek Cuaca</button>
+                    <p id="weatherResult"></p>
+                </div>
+                <div class="tool-card">
+                    <h3>Random Quote Generator</h3>
+                    <button onclick="generateQuote()">Dapatkan Kutipan</button>
+                    <p id="quoteResult"></p>
+                </div>
             </div>
-            <!-- Add more projects as needed -->
-        </section>
-        <section id="contact">
-            <h1>Contact Me</h1>
-            <form action="#" method="post">
-                <label for="name">Name:</label>
-                <input type="text" id="name" name="name" required>
-                <label for="email">Email:</label>
-                <input type="email" id="email" name="email" required>
-                <label for="message">Message:</label>
-                <textarea id="message" name="message" required></textarea>
-                <button type="submit">Send</button>
+        </div>
+    </section>
+
+    <section id="contact" class="section">
+        <div class="container">
+            <h2>Kontak Saya</h2>
+            <form id="contactForm">
+                <input type="text" placeholder="Nama Anda" required>
+                <input type="email" placeholder="Email Anda" required>
+                <textarea placeholder="Pesan Anda" required></textarea>
+                <button type="submit">Kirim</button>
             </form>
-        </section>
-    </main>
+        </div>
+    </section>
+
     <footer>
-        <p>&copy; 2023 My Portfolio. All rights reserved.</p>
+        <p>&copy; 2023 Nama Anda. Semua hak dilindungi.</p>
     </footer>
+
+    <script src="script.js"></script>
 </body>
 </html>
