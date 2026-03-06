@@ -1,3 +1,22 @@
+// DEVICE DETECTION
+const isTouchDevice = () => {
+    return (
+        (typeof window !== "undefined" && 
+            typeof navigator !== "undefined" && 
+            (navigator.maxTouchPoints > 0 || 
+             navigator.msMaxTouchPoints > 0 ||
+             window.matchMedia("(hover: none)").matches))
+    );
+};
+
+const isMobileDevice = () => {
+    return window.innerWidth <= 768;
+};
+
+const isSmallDevice = () => {
+    return window.innerWidth <= 480;
+};
+
 // LOADING SCREEN
 window.addEventListener("load", () => {
     const loader = document.getElementById("loader");
@@ -43,70 +62,80 @@ function typeEffect() {
 }
 typeEffect();
 
-// PARTICLES
+// PARTICLES - Adjust based on device
+const particleCount = isSmallDevice() ? 30 : isMobileDevice() ? 50 : 80;
+const particleDistance = isMobileDevice() ? 100 : 150;
+const particleSpeed = isSmallDevice() ? 1 : 2;
+
 particlesJS("particles-js", {
     particles: {
-        number: { value: 80 },
+        number: { value: particleCount },
         size: { value: 3 },
         color: { value: "#00f0ff" },
         line_linked: {
             enable: true,
-            distance: 150,
+            distance: particleDistance,
             color: "#00f0ff",
             opacity: 0.4,
             width: 1
         },
-        move: { enable: true, speed: 2 }
+        move: { enable: true, speed: particleSpeed }
     },
     interactivity: {
         events: {
-            onhover: { enable: true, mode: "repulse" }
+            onhover: { enable: !isTouchDevice(), mode: "repulse" }
         }
     }
 });
 
-// CURSOR GLOW
+// CURSOR GLOW - Only on desktop
 const cursor = document.querySelector(".cursor-glow");
 
-document.addEventListener("mousemove", (e) => {
-    cursor.style.left = e.clientX + "px";
-    cursor.style.top = e.clientY + "px";
-});
+if (!isTouchDevice()) {
+    document.addEventListener("mousemove", (e) => {
+        cursor.style.left = e.clientX + "px";
+        cursor.style.top = e.clientY + "px";
+    });
+}
 
-// MAGNETIC BUTTON
+// MAGNETIC BUTTON - Only on desktop
 const magneticBtn = document.querySelector(".btn");
 
-magneticBtn.addEventListener("mousemove", (e) => {
-    const rect = magneticBtn.getBoundingClientRect();
-    const x = e.clientX - rect.left - rect.width / 2;
-    const y = e.clientY - rect.top - rect.height / 2;
+if (!isTouchDevice() && !isMobileDevice()) {
+    magneticBtn.addEventListener("mousemove", (e) => {
+        const rect = magneticBtn.getBoundingClientRect();
+        const x = e.clientX - rect.left - rect.width / 2;
+        const y = e.clientY - rect.top - rect.height / 2;
 
-    magneticBtn.style.transform = `translate(${x * 0.2}px, ${y * 0.2}px)`;
-});
+        magneticBtn.style.transform = `translate(${x * 0.2}px, ${y * 0.2}px)`;
+    });
 
-magneticBtn.addEventListener("mouseleave", () => {
-    magneticBtn.style.transform = "translate(0,0)";
-});
+    magneticBtn.addEventListener("mouseleave", () => {
+        magneticBtn.style.transform = "translate(0,0)";
+    });
+}
 
-// 3D TILT CARD
+// 3D TILT CARD - Only on desktop
 const cards = document.querySelectorAll(".card");
 
-cards.forEach(card => {
-    card.addEventListener("mousemove", (e) => {
-        const rect = card.getBoundingClientRect();
-        const x = e.clientX - rect.left;
-        const y = e.clientY - rect.top;
+if (!isTouchDevice() && !isMobileDevice()) {
+    cards.forEach(card => {
+        card.addEventListener("mousemove", (e) => {
+            const rect = card.getBoundingClientRect();
+            const x = e.clientX - rect.left;
+            const y = e.clientY - rect.top;
 
-        const centerX = rect.width / 2;
-        const centerY = rect.height / 2;
+            const centerX = rect.width / 2;
+            const centerY = rect.height / 2;
 
-        const rotateX = -(y - centerY) / 10;
-        const rotateY = (x - centerX) / 10;
+            const rotateX = -(y - centerY) / 10;
+            const rotateY = (x - centerX) / 10;
 
-        card.style.transform = `rotateX(${rotateX}deg) rotateY(${rotateY}deg)`;
+            card.style.transform = `rotateX(${rotateX}deg) rotateY(${rotateY}deg)`;
+        });
+
+        card.addEventListener("mouseleave", () => {
+            card.style.transform = "rotateX(0) rotateY(0)";
+        });
     });
-
-    card.addEventListener("mouseleave", () => {
-        card.style.transform = "rotateX(0) rotateY(0)";
-    });
-});
+}
