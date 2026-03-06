@@ -75,6 +75,18 @@ section {
     text-align: center;
 }
 
+section h2 {
+    font-size: clamp(2rem, 6vw, 2.8rem);
+    margin-bottom: clamp(15px, 3vw, 30px);
+}
+
+section p {
+    font-size: clamp(0.95rem, 2.5vw, 1.1rem);
+    max-width: 700px;
+    margin: 0 auto;
+    line-height: 1.6;
+}
+
 /* HERO */
 .hero h1 {
     font-size: clamp(1.8rem, 8vw, 3rem);
@@ -115,33 +127,294 @@ section {
     gap: clamp(15px, 3vw, 25px);
 }
 
-section h2 {
-    font-size: clamp(2rem, 6vw, 2.8rem);
-    margin-bottom: clamp(15px, 3vw, 30px);
-}
-
-section p {
-    font-size: clamp(0.95rem, 2.5vw, 1.1rem);
-    max-width: 700px;
+/* ABOUT SECTION */
+.about-container {
+    display: flex;
+    align-items: center;
+    gap: clamp(30px, 5vw, 60px);
+    max-width: 900px;
     margin: 0 auto;
-    line-height: 1.6;
+    flex-wrap: wrap;
 }
 
-.card {
-    background: rgba(255,255,255,0.05);
-    padding: clamp(20px, 4vw, 30px);
-    border-radius: 15px;
+.about-image {
+    flex: 1;
+    min-width: 200px;
+    display: flex;
+    justify-content: center;
+}
+
+.profile-placeholder {
+    width: clamp(150px, 25vw, 250px);
+    height: clamp(150px, 25vw, 250px);
+    background: linear-gradient(135deg, rgba(0,240,255,0.2), rgba(0,240,255,0.05));
+    border-radius: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: clamp(60px, 15vw, 100px);
+    color: #00f0ff;
+    border: 2px solid rgba(0,240,255,0.3);
     backdrop-filter: blur(10px);
     transition: 0.3s;
 }
 
-.card h3 {
-    font-size: clamp(1.2rem, 3vw, 1.5rem);
-    margin-bottom: 10px;
+.profile-placeholder:hover {
+    border-color: #00f0ff;
+    box-shadow: 0 0 30px rgba(0,240,255,0.3);
+    transform: scale(1.05);
 }
 
-.card p {
+.about-content {
+    flex: 1;
+    min-width: 250px;
+    text-align: left;
+}
+
+.about-content h2 {
+    margin-bottom: clamp(15px, 3vw, 25px);
+}
+
+.about-content p {
+    margin-bottom: clamp(12px, 2vw, 20px);
+    line-height: 1.8;
+}
+
+.btn-secondary {
+    display: inline-block;
+    margin-top: clamp(15px, 3vw, 25px);
+    padding: clamp(10px, 2vw, 12px) clamp(20px, 4vw, 25px);
+    background: rgba(0,240,255,0.1);
+    color: #00f0ff;
+    border: 2px solid #00f0ff;
+    border-radius: 30px;
+    text-decoration: none;
+    transition: 0.3s;
     font-size: clamp(0.9rem, 2vw, 1rem);
+    font-weight: 600;
+}
+
+.btn-secondary:hover {
+    background: #00f0ff;
+    color: black;
+    box-shadow: 0 0 20px #00f0ff;
+}
+
+/* SKILLS SECTION */
+.skills-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: clamp(25px, 5vw, 40px);
+    margin-top: clamp(30px, 5vw, 50px);
+    max-width: 1000px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.skill-category {
+    background: rgba(255,255,255,0.02);
+    padding: clamp(20px, 4vw, 30px);
+    border-radius: 15px;
+    border: 1px solid rgba(0,240,255,0.2);
+    backdrop-filter: blur(10px);
+    transition: 0.3s;
+}
+
+.skill-category:hover {
+    border-color: #00f0ff;
+    box-shadow: 0 0 20px rgba(0,240,255,0.2);
+    transform: translateY(-5px);
+}
+
+.skill-category h3 {
+    font-size: clamp(1.1rem, 2.5vw, 1.3rem);
+    margin-bottom: clamp(15px, 2vw, 20px);
+    color: #00f0ff;
+}
+
+.skill-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: clamp(8px, 1.5vw, 12px);
+}
+
+.skill-tag {
+    background: rgba(0,240,255,0.1);
+    color: #00f0ff;
+    padding: clamp(6px, 1vw, 10px) clamp(12px, 2vw, 16px);
+    border-radius: 20px;
+    font-size: clamp(0.8rem, 1.5vw, 0.9rem);
+    border: 1px solid rgba(0,240,255,0.3);
+    transition: 0.3s;
+    white-space: nowrap;
+}
+
+.skill-tag:hover {
+    background: #00f0ff;
+    color: black;
+    transform: scale(1.05);
+}
+
+/* EXPERIENCE SECTION */
+.experience-timeline {
+    max-width: 700px;
+    margin: clamp(30px, 5vw, 50px) auto 0;
+    position: relative;
+}
+
+.timeline-item {
+    display: flex;
+    gap: clamp(20px, 4vw, 30px);
+    margin-bottom: clamp(30px, 5vw, 50px);
+    position: relative;
+}
+
+.timeline-marker {
+    width: clamp(15px, 3vw, 20px);
+    height: clamp(15px, 3vw, 20px);
+    background: #00f0ff;
+    border-radius: 50%;
+    flex-shrink: 0;
+    margin-top: 5px;
+    box-shadow: 0 0 15px #00f0ff;
+}
+
+.timeline-content {
+    flex: 1;
+    background: rgba(255,255,255,0.03);
+    padding: clamp(15px, 3vw, 25px);
+    border-radius: 12px;
+    border-left: 2px solid #00f0ff;
+    text-align: left;
+    transition: 0.3s;
+}
+
+.timeline-content:hover {
+    background: rgba(0,240,255,0.1);
+    transform: translateX(10px);
+}
+
+.timeline-content h3 {
+    font-size: clamp(1.1rem, 2.5vw, 1.3rem);
+    margin-bottom: 5px;
+    color: #00f0ff;
+}
+
+.timeline-date {
+    font-size: clamp(0.8rem, 1.5vw, 0.9rem);
+    opacity: 0.7;
+    margin-bottom: clamp(8px, 1.5vw, 12px);
+}
+
+.timeline-description {
+    font-size: clamp(0.85rem, 2vw, 0.95rem);
+    line-height: 1.6;
+    opacity: 0.85;
+}
+
+/* ENHANCED PORTFOLIO CARDS */
+.card {
+    background: rgba(255,255,255,0.05);
+    padding: 0;
+    border-radius: 15px;
+    backdrop-filter: blur(10px);
+    transition: 0.3s;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+}
+
+.card-image {
+    width: 100%;
+    height: clamp(150px, 30vw, 200px);
+    background: rgba(0,240,255,0.05);
+    border-bottom: 1px solid rgba(0,240,255,0.2);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+}
+
+.placeholder-img {
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, rgba(0,240,255,0.1), rgba(0,240,255,0.02));
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: clamp(40px, 10vw, 60px);
+    color: rgba(0,240,255,0.4);
+    transition: 0.3s;
+}
+
+.card:hover .placeholder-img {
+    color: #00f0ff;
+    background: linear-gradient(135deg, rgba(0,240,255,0.2), rgba(0,240,255,0.05));
+}
+
+.card-content {
+    padding: clamp(15px, 3vw, 25px);
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.card h3 {
+    font-size: clamp(1.1rem, 2.5vw, 1.3rem);
+    margin-bottom: clamp(8px, 1.5vw, 12px);
+    color: #00f0ff;
+}
+
+.project-desc {
+    font-size: clamp(0.85rem, 2vw, 0.95rem);
+    margin-bottom: clamp(12px, 2vw, 15px);
+    flex-grow: 1;
+    line-height: 1.6;
+}
+
+.project-tech {
+    display: flex;
+    flex-wrap: wrap;
+    gap: clamp(6px, 1vw, 10px);
+    margin-bottom: clamp(12px, 2vw, 15px);
+}
+
+.tech-badge {
+    background: rgba(0,240,255,0.1);
+    color: #00f0ff;
+    padding: clamp(4px, 0.8vw, 6px) clamp(10px, 1.5vw, 12px);
+    border-radius: 15px;
+    font-size: clamp(0.75rem, 1.2vw, 0.85rem);
+    border: 1px solid rgba(0,240,255,0.3);
+    white-space: nowrap;
+}
+
+.project-links {
+    display: flex;
+    gap: clamp(8px, 1.5vw, 12px);
+}
+
+.link-btn {
+    flex: 1;
+    padding: clamp(6px, 1vw, 8px) clamp(10px, 1.5vw, 12px);
+    background: rgba(0,240,255,0.1);
+    color: #00f0ff;
+    border: 1px solid rgba(0,240,255,0.3);
+    border-radius: 8px;
+    text-decoration: none;
+    font-size: clamp(0.8rem, 1.5vw, 0.9rem);
+    transition: 0.3s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 5px;
+    white-space: nowrap;
+}
+
+.link-btn:hover {
+    background: #00f0ff;
+    color: black;
+    box-shadow: 0 0 15px rgba(0,240,255,0.4);
 }
 
 .card:hover {
@@ -193,10 +466,88 @@ section p {
 
 /* FOOTER */
 footer {
+    background: rgba(0,0,0,0.8);
+    border-top: 1px solid rgba(0,240,255,0.2);
+    padding: clamp(30px, 5vw, 50px) clamp(5%, 10vw, 10%);
+    backdrop-filter: blur(10px);
+}
+
+.footer-content {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: clamp(25px, 5vw, 40px);
+    max-width: 1200px;
+    margin: 0 auto clamp(25px, 4vw, 30px);
+}
+
+.footer-section {
+    text-align: left;
+}
+
+.footer-section h4 {
+    font-size: clamp(1rem, 2vw, 1.2rem);
+    color: #00f0ff;
+    margin-bottom: clamp(10px, 2vw, 15px);
+}
+
+.footer-section p {
+    font-size: clamp(0.85rem, 1.5vw, 0.95rem);
+    opacity: 0.8;
+    line-height: 1.6;
+}
+
+.footer-section ul {
+    list-style: none;
+    padding: 0;
+}
+
+.footer-section li {
+    margin-bottom: clamp(8px, 1vw, 12px);
+}
+
+.footer-section a {
+    color: #ffffff;
+    text-decoration: none;
+    font-size: clamp(0.85rem, 1.5vw, 0.95rem);
+    transition: 0.3s;
+    opacity: 0.8;
+}
+
+.footer-section a:hover {
+    color: #00f0ff;
+    opacity: 1;
+}
+
+.footer-links {
+    display: flex;
+    gap: clamp(12px, 2vw, 18px);
+    flex-wrap: wrap;
+}
+
+.footer-links a {
+    width: clamp(40px, 8vw, 50px);
+    height: clamp(40px, 8vw, 50px);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+    background: rgba(0,240,255,0.1);
+    transition: 0.3s;
+    font-size: clamp(1rem, 2vw, 1.2rem);
+}
+
+.footer-links a:hover {
+    background: #00f0ff;
+    color: black;
+    box-shadow: 0 0 20px #00f0ff;
+    transform: translateY(-5px);
+}
+
+.footer-bottom {
     text-align: center;
-    padding: clamp(20px, 4vw, 30px);
-    background: rgba(0,0,0,0.6);
-    font-size: clamp(0.7rem, 1.5vw, 0.8rem);
+    padding-top: clamp(20px, 3vw, 25px);
+    border-top: 1px solid rgba(0,240,255,0.1);
+    font-size: clamp(0.75rem, 1.2vw, 0.85rem);
     opacity: 0.6;
 }
 
@@ -313,6 +664,31 @@ footer {
         font-size: clamp(0.85rem, 2vw, 0.95rem);
     }
 
+    /* ABOUT ADJUSTMENTS */
+    .about-container {
+        flex-direction: column;
+        gap: clamp(20px, 3vw, 30px);
+    }
+
+    .about-content {
+        text-align: center;
+    }
+
+    /* SKILLS ADJUSTMENTS */
+    .skills-grid {
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        gap: clamp(15px, 3vw, 25px);
+    }
+
+    /* EXPERIENCE ADJUSTMENTS */
+    .experience-timeline {
+        max-width: 100%;
+    }
+
+    .timeline-item {
+        gap: clamp(15px, 2vw, 20px);
+    }
+
     /* PORTFOLIO ADJUSTMENTS */
     .portfolio-grid {
         grid-template-columns: repeat(auto-fit, minmax(clamp(160px, 100%, 280px), 1fr));
@@ -320,10 +696,17 @@ footer {
     }
 
     .card {
-        padding: clamp(15px, 3vw, 25px);
+        padding: 0;
     }
 
-    /* CONTACT ADJUSTMENTS */
+    .card-image {
+        height: clamp(120px, 25vw, 150px);
+    }
+
+    .card-content {
+        padding: clamp(12px, 2vw, 20px);
+    }
+
     .contact-icons {
         gap: clamp(12px, 2vw, 20px);
     }
@@ -388,6 +771,49 @@ footer {
         font-size: clamp(0.8rem, 1.5vw, 0.85rem);
     }
 
+    /* ABOUT ADJUSTMENTS */
+    .about-container {
+        flex-direction: column;
+        gap: 15px;
+    }
+
+    .about-content {
+        text-align: center;
+    }
+
+    .about-content p {
+        font-size: clamp(0.8rem, 1.8vw, 0.9rem);
+    }
+
+    .btn-secondary {
+        padding: clamp(6px, 0.8vw, 8px) clamp(12px, 1.5vw, 15px);
+        font-size: clamp(0.75rem, 1.5vw, 0.8rem);
+    }
+
+    /* SKILLS ADJUSTMENTS */
+    .skills-grid {
+        grid-template-columns: 1fr;
+        gap: clamp(12px, 2vw, 15px);
+    }
+
+    .skill-category {
+        padding: clamp(12px, 2vw, 15px);
+    }
+
+    .skill-tags {
+        gap: clamp(6px, 1vw, 8px);
+    }
+
+    /* EXPERIENCE ADJUSTMENTS */
+    .timeline-item {
+        gap: clamp(12px, 1.5vw, 15px);
+    }
+
+    .timeline-marker {
+        width: clamp(12px, 2vw, 15px);
+        height: clamp(12px, 2vw, 15px);
+    }
+
     /* PORTFOLIO ADJUSTMENTS */
     .portfolio-grid {
         grid-template-columns: 1fr;
@@ -395,7 +821,29 @@ footer {
     }
 
     .card {
-        padding: clamp(12px, 2vw, 20px);
+        padding: 0;
+    }
+
+    .card-image {
+        height: clamp(100px, 20vw, 120px);
+    }
+
+    .card-content {
+        padding: clamp(10px, 1.5vw, 15px);
+    }
+
+    .project-tech {
+        margin-bottom: clamp(8px, 1.5vw, 10px);
+    }
+
+    .tech-badge {
+        font-size: clamp(0.7rem, 1vw, 0.75rem);
+        padding: clamp(3px, 0.5vw, 4px) clamp(8px, 1vw, 10px);
+    }
+
+    .link-btn {
+        padding: clamp(4px, 0.8vw, 6px) clamp(8px, 1vw, 10px);
+        font-size: clamp(0.7rem, 1.2vw, 0.75rem);
     }
 
     .card h3 {
