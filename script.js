@@ -23,7 +23,7 @@ const initThemeToggle = () => {
     const htmlElement = document.documentElement;
     const body = document.body;
     const darkModeContainer = document.getElementById("light-mode-container");
-    const darkModeSections = document.querySelectorAll("section:not(.profile-header):not(.light-mode), .hero, .about, .skills, .experience, .portfolio, .contact");
+    const darkModeSections = document.querySelectorAll("section:not(.profile-header):not(.light-mode), .hero, .about, .skills, .experience, .portfolio, .books, .contact");
     
     // Load saved theme from localStorage
     const savedTheme = localStorage.getItem("theme") || "dark";
@@ -95,11 +95,39 @@ const initThemeToggle = () => {
     }
 };
 
+const initBookFilters = () => {
+    const filterButtons = document.querySelectorAll(".filter-btn");
+    const cards = document.querySelectorAll(".book-card");
+
+    if (!filterButtons.length || !cards.length) return;
+
+    filterButtons.forEach(button => {
+        button.addEventListener("click", () => {
+            const selectedFilter = button.dataset.filter;
+
+            filterButtons.forEach(btn => btn.classList.toggle("active", btn === button));
+
+            cards.forEach(card => {
+                const audience = card.dataset.audience;
+                const status = card.dataset.status;
+                const matchesAudience = selectedFilter === "all" || audience === selectedFilter || (selectedFilter === "indonesia" && audience === "indonesia") || (selectedFilter === "international" && audience === "international");
+                const matchesStatus = selectedFilter === "all" || status === selectedFilter;
+                const showCard = selectedFilter === "all" ? true : (matchesAudience || matchesStatus);
+                card.classList.toggle("hidden", !showCard);
+            });
+        });
+    });
+};
+
 // Initialize theme toggle when DOM is ready
 if (document.readyState === "loading") {
-    document.addEventListener("DOMContentLoaded", initThemeToggle);
+    document.addEventListener("DOMContentLoaded", () => {
+        initThemeToggle();
+        initBookFilters();
+    });
 } else {
     initThemeToggle();
+    initBookFilters();
 }
 
 // LOADING SCREEN

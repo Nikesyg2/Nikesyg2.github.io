@@ -21,6 +21,11 @@
 
     <link rel="stylesheet" href="style.css">
 
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Inter:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
+
     <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 </head>
@@ -39,6 +44,7 @@
             <a href="#home">Home</a>
             <a href="#about">About</a>
             <a href="#portfolio">Portfolio</a>
+            <a href="books.html">Books</a>
             <a href="#contact">Contact</a>
         </div>
         <button id="theme-toggle" class="theme-toggle" title="Toggle Dark/Light Mode">
@@ -82,37 +88,37 @@
             <div class="skill-category">
                 <h3>Frontend Development</h3>
                 <div class="skill-tags">
-                    <span class="skill-tag">HTML5</span>
-                    <span class="skill-tag">CSS3</span>
-                    <span class="skill-tag">JavaScript</span>
-                    <span class="skill-tag">React</span>
+                    <a class="skill-tag" href="https://developer.mozilla.org/en-US/docs/Web/HTML" target="_blank" rel="noreferrer"><i class="fa-solid fa-arrow-up-right-from-square"></i>HTML5</a>
+                    <a class="skill-tag" href="https://developer.mozilla.org/en-US/docs/Web/CSS" target="_blank" rel="noreferrer"><i class="fa-solid fa-arrow-up-right-from-square"></i>CSS3</a>
+                    <a class="skill-tag" href="https://developer.mozilla.org/en-US/docs/Web/JavaScript" target="_blank" rel="noreferrer"><i class="fa-solid fa-arrow-up-right-from-square"></i>JavaScript</a>
+                    <a class="skill-tag" href="https://react.dev" target="_blank" rel="noreferrer"><i class="fa-solid fa-arrow-up-right-from-square"></i>React</a>
                 </div>
             </div>
             <div class="skill-category">
                 <h3>Backend & Databases</h3>
                 <div class="skill-tags">
-                    <span class="skill-tag">Node.js</span>
-                    <span class="skill-tag">Python</span>
-                    <span class="skill-tag">MongoDB</span>
-                    <span class="skill-tag">SQL</span>
+                    <a class="skill-tag" href="https://nodejs.org" target="_blank" rel="noreferrer"><i class="fa-solid fa-arrow-up-right-from-square"></i>Node.js</a>
+                    <a class="skill-tag" href="https://www.python.org" target="_blank" rel="noreferrer"><i class="fa-solid fa-arrow-up-right-from-square"></i>Python</a>
+                    <a class="skill-tag" href="https://www.mongodb.com" target="_blank" rel="noreferrer"><i class="fa-solid fa-arrow-up-right-from-square"></i>MongoDB</a>
+                    <a class="skill-tag" href="https://www.w3schools.com/sql/" target="_blank" rel="noreferrer"><i class="fa-solid fa-arrow-up-right-from-square"></i>SQL</a>
                 </div>
             </div>
             <div class="skill-category">
                 <h3>Design & Tools</h3>
                 <div class="skill-tags">
-                    <span class="skill-tag">Figma</span>
-                    <span class="skill-tag">UI/UX Design</span>
-                    <span class="skill-tag">Git</span>
-                    <span class="skill-tag">VS Code</span>
+                    <a class="skill-tag" href="https://www.figma.com" target="_blank" rel="noreferrer"><i class="fa-solid fa-arrow-up-right-from-square"></i>Figma</a>
+                    <a class="skill-tag" href="https://www.nngroup.com/articles/ux-design-process/" target="_blank" rel="noreferrer"><i class="fa-solid fa-arrow-up-right-from-square"></i>UI/UX Design</a>
+                    <a class="skill-tag" href="https://git-scm.com" target="_blank" rel="noreferrer"><i class="fa-solid fa-arrow-up-right-from-square"></i>Git</a>
+                    <a class="skill-tag" href="https://code.visualstudio.com" target="_blank" rel="noreferrer"><i class="fa-solid fa-arrow-up-right-from-square"></i>VS Code</a>
                 </div>
             </div>
             <div class="skill-category">
                 <h3>Other Skills</h3>
                 <div class="skill-tags">
-                    <span class="skill-tag">Responsive Design</span>
-                    <span class="skill-tag">Web Animation</span>
-                    <span class="skill-tag">Problem Solving</span>
-                    <span class="skill-tag">Team Collaboration</span>
+                    <a class="skill-tag" href="https://developer.mozilla.org/en-US/docs/Learn/CSS/CSS_layout/Responsive_Design" target="_blank" rel="noreferrer"><i class="fa-solid fa-arrow-up-right-from-square"></i>Responsive Design</a>
+                    <a class="skill-tag" href="https://www.w3schools.com/css/css3_animations.asp" target="_blank" rel="noreferrer"><i class="fa-solid fa-arrow-up-right-from-square"></i>Web Animation</a>
+                    <a class="skill-tag" href="https://www.indeed.com/career-advice/career-development/problem-solving-skills" target="_blank" rel="noreferrer"><i class="fa-solid fa-arrow-up-right-from-square"></i>Problem Solving</a>
+                    <a class="skill-tag" href="https://www.atlassian.com/team-playbook/examples/what-is-team-collaboration" target="_blank" rel="noreferrer"><i class="fa-solid fa-arrow-up-right-from-square"></i>Team Collaboration</a>
                 </div>
             </div>
         </div>
@@ -246,74 +252,91 @@
                 </a>
             </div>
 
-            <div class="profile-info-card">
+            <div class="light-mode-hero">
+                <p class="eyebrow-light">Creative developer • writer • curious mind</p>
                 <h2>Atanasius Reynaldi</h2>
-                <p class="location"><i class="fas fa-map-marker-alt"></i> Mid Java, Indonesia</p>
-                
-                <div class="info-section">
-                    <h3>From</h3>
-                    <p>Malang, Indonesia</p>
-                </div>
+                <p class="light-lead">
+                    I build things with intention. I like turning ideas into digital experiences that work, feel human, and leave a lasting impression.
+                </p>
+            </div>
 
-                <div class="info-section">
-                    <h3>Education</h3>
-                    <ul>
-                        <li><strong>D4 Mechatronics</strong> - Politeknik Maritim Indonesia, Semarang (2025-now)</li>
-                        <li><strong>Mechanical Engineering</strong> - Saint Michael Vocational High School, Surakarta (2023-2025)</li>
-                    </ul>
-                </div>
+            <div class="light-mode-grid">
+                <article class="light-mode-card">
+                    <span>What I value</span>
+                    <h3>Clarity & craft</h3>
+                    <p>Good systems feel easy to use, and good stories feel honest. I care about both.</p>
+                </article>
+                <article class="light-mode-card">
+                    <span>How I work</span>
+                    <h3>Thoughtful execution</h3>
+                    <p>I prefer deliberate work over noise. Clean ideas, calm structure, and useful results.</p>
+                </article>
+                <article class="light-mode-card">
+                    <span>What drives me</span>
+                    <h3>Curiosity</h3>
+                    <p>I enjoy learning technologies, understanding systems, and writing ideas that make sense.</p>
+                </article>
+            </div>
 
-                <div class="info-section">
-                    <h3>Past Experiences</h3>
-                    <ul>
-                        <li>Internship - Tri Centrum Fortuna III (Maintenance Dies Machine, 2024)</li>
-                    </ul>
-                </div>
+            <div class="light-mode-summary">
+                <div class="profile-info-card">
+                    <h3>Profile</h3>
+                    <div class="info-section">
+                        <h3>From</h3>
+                        <p>Malang, Indonesia</p>
+                    </div>
 
-                <div class="info-section">
-                    <h3>Fields of Interest</h3>
-                    <div class="tags">
-                        <span class="tag">Web Development</span>
-                        <span class="tag">AI LLMs</span>
-                        <span class="tag">Writing Poetry</span>
-                        <span class="tag">Bot WhatsApp</span>
+                    <div class="info-section">
+                        <h3>Education</h3>
+                        <ul>
+                            <li><strong>D4 Mechatronics</strong> - Politeknik Maritim Indonesia, Semarang (2025-now)</li>
+                            <li><strong>Mechanical Engineering</strong> - Saint Michael Vocational High School, Surakarta (2023-2025)</li>
+                        </ul>
+                    </div>
+
+                    <div class="info-section">
+                        <h3>Past Experiences</h3>
+                        <ul>
+                            <li>Internship - Tri Centrum Fortuna III (Maintenance Dies Machine, 2024)</li>
+                        </ul>
                     </div>
                 </div>
 
-                <div class="info-section">
-                    <h3>Currently Learning</h3>
-                    <div class="tags">
-                        <span class="tag">Web3</span>
-                        <span class="tag">React</span>
-                        <span class="tag">C</span>
+                <div class="light-mode-notes">
+                    <div class="quote-box">
+                        <p>“I like building work that feels useful, thoughtful, and alive.”</p>
                     </div>
-                </div>
 
-                <div class="info-section">
-                    <h3>Will Learn</h3>
-                    <div class="tags">
-                        <span class="tag">Blockchain (backend)</span>
+                    <div class="mini-panel">
+                        <h3>Writing focus</h3>
+                        <div class="tags">
+                            <span class="tag">Poetry</span>
+                            <span class="tag">Stories</span>
+                            <span class="tag">Emotional depth</span>
+                            <span class="tag">Human connection</span>
+                        </div>
                     </div>
-                </div>
 
-                <div class="info-section">
-                    <h3>Hobbies</h3>
-                    <div class="tags">
-                        <span class="tag">Writing</span>
-                        <span class="tag">Cinema</span>
-                        <span class="tag">Competitive Gaming</span>
-                        <span class="tag">IoT</span>
+                    <div class="mini-panel">
+                        <h3>Currently learning</h3>
+                        <div class="tags">
+                            <span class="tag">Web3</span>
+                            <span class="tag">React</span>
+                            <span class="tag">C</span>
+                            <span class="tag">AI LLMs</span>
+                        </div>
                     </div>
-                </div>
 
-                <div class="info-section">
-                    <h3>GitHub Stats</h3>
-                    <ul class="stats">
-                        <li>📦 541 kB Used in GitHub's Storage</li>
-                        <li>💼 Opted to Hire</li>
-                        <li>📜 6 Public Repositories</li>
-                        <li>🔑 2 Private Repositories</li>
-                    </ul>
+                    <div class="mini-panel">
+                        <h3>Fields of interest</h3>
+                        <div class="tags">
+                            <span class="tag">Web Development</span>
+                            <span class="tag">AI LLMs</span>
+                            <span class="tag">Writing</span>
+                            <span class="tag">Bot WhatsApp</span>
+                            <span class="tag">IoT</span>
+                        </div>
+                    </div>
                 </div>
             </div>
         </section>

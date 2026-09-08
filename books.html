@@ -1,0 +1,1293 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Books | Atanasius Reynaldi</title>
+    <meta name="description" content="Halaman buku dan karya tulis Atanasius Reynaldi, dengan pembagian audiens Indonesia dan internasional.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <style>
+        :root {
+            --bg: #f3efe8;
+            --bg-soft: #f9f5f0;
+            --panel: rgba(255,255,255,0.5);
+            --panel-strong: #f7f1e9;
+            --text: #2a2119;
+            --muted: #6f5d4f;
+            --line: rgba(74, 52, 38, 0.15);
+            --accent: #7a4b35;
+            --accent-deep: #563327;
+            --gold: #c89b63;
+            --sage: #8f9b82;
+            --shadow: rgba(58, 42, 31, 0.12);
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background: linear-gradient(180deg, #f7f0e8 0%, #efe7dc 100%);
+            color: var(--text);
+        }
+
+        body.loading {
+            overflow: hidden;
+        }
+
+        a {
+            color: inherit;
+            text-decoration: none;
+        }
+
+        #loader {
+            position: fixed;
+            inset: 0;
+            width: 100%;
+            height: 100vh;
+            background: linear-gradient(180deg, #d9c1a8 0%, #c8aa86 100%);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 9999;
+            transition: opacity 1s ease, visibility 1s ease;
+        }
+
+        #loader h1 {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: clamp(2.2rem, 7vw, 4rem);
+            color: #4b2d20;
+            letter-spacing: 0.14em;
+            text-transform: uppercase;
+            font-weight: 600;
+            animation: warmPulse 1.5s ease-in-out infinite;
+        }
+
+        #loader.hidden {
+            opacity: 0;
+            visibility: hidden;
+        }
+
+        @keyframes warmPulse {
+            0%, 100% {
+                opacity: 0.5;
+                transform: scale(0.98);
+            }
+            50% {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+
+        .page-shell {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 24px 22px 80px;
+        }
+
+        .topbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 0 30px;
+            border-bottom: 1px solid var(--line);
+        }
+
+        .brand {
+            display: flex;
+            align-items: center;
+            gap: 14px;
+            font-weight: 700;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+        }
+
+        .brand-mark {
+            width: 38px;
+            height: 38px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, var(--accent) 0%, var(--gold) 100%);
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.8rem;
+            box-shadow: 0 10px 20px rgba(122, 75, 53, 0.2);
+        }
+
+        .nav {
+            display: flex;
+            align-items: center;
+            gap: 18px;
+            flex-wrap: wrap;
+        }
+
+        .nav a {
+            color: var(--muted);
+            font-size: 0.9rem;
+            transition: color 0.2s ease, transform 0.2s ease;
+        }
+
+        .nav a:hover {
+            color: var(--accent-deep);
+            transform: translateY(-1px);
+        }
+
+        .nav-cta {
+            padding: 10px 18px;
+            border-radius: 999px;
+            background: var(--accent-deep);
+            color: #fff;
+            box-shadow: 0 10px 20px rgba(86, 51, 39, 0.18);
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+        }
+
+        .nav-cta:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 14px 24px rgba(86, 51, 39, 0.2);
+        }
+
+        .hero {
+            display: grid;
+            grid-template-columns: 1.3fr 0.7fr;
+            gap: 30px;
+            align-items: center;
+            padding: 56px 0 30px;
+            animation: fadeRise 0.7s ease both;
+        }
+
+        .eyebrow {
+            color: var(--accent);
+            letter-spacing: 0.18em;
+            text-transform: uppercase;
+            font-size: 0.72rem;
+            font-weight: 700;
+            margin-bottom: 18px;
+        }
+
+        h1 {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: clamp(3rem, 6vw, 6rem);
+            line-height: 0.9;
+            letter-spacing: -0.04em;
+            margin-bottom: 20px;
+            font-weight: 600;
+        }
+
+        .hero p {
+            max-width: 620px;
+            color: var(--muted);
+            line-height: 1.8;
+            font-size: 1.02rem;
+        }
+
+        .hero-actions {
+            display: flex;
+            gap: 16px;
+            flex-wrap: wrap;
+            margin-top: 28px;
+        }
+
+        .primary-btn,
+        .secondary-btn {
+            padding: 14px 22px;
+            border-radius: 999px;
+            font-weight: 600;
+            transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease, background 0.25s ease;
+        }
+
+        .primary-btn {
+            background: var(--accent-deep);
+            color: #fff;
+            box-shadow: 0 16px 28px rgba(86, 51, 39, 0.18);
+        }
+
+        .secondary-btn {
+            border: 1px solid var(--line);
+            background: rgba(255,255,255,0.4);
+            color: var(--text);
+        }
+
+        .primary-btn:hover,
+        .secondary-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 14px 24px rgba(86, 51, 39, 0.12);
+        }
+
+        .hero-card {
+            background: linear-gradient(180deg, rgba(255,255,255,0.5), rgba(249,245,240,0.9));
+            border: 1px solid var(--line);
+            border-radius: 28px;
+            padding: 24px;
+            box-shadow: 0 18px 40px var(--shadow);
+            transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
+        }
+
+        .hero-card:hover {
+            transform: translateY(-3px);
+            border-color: rgba(122, 75, 53, 0.22);
+            box-shadow: 0 22px 42px rgba(58, 42, 31, 0.09);
+        }
+
+        .hero-card .mini-title {
+            font-size: 0.74rem;
+            text-transform: uppercase;
+            letter-spacing: 0.12em;
+            color: var(--muted);
+            margin-bottom: 12px;
+        }
+
+        .quote {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: clamp(2rem, 3vw, 3rem);
+            line-height: 1;
+            margin-bottom: 18px;
+            color: var(--accent-deep);
+        }
+
+        .hero-card ul {
+            list-style: none;
+            display: grid;
+            gap: 12px;
+            color: var(--muted);
+        }
+
+        .hero-card li {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .hero-card li::before {
+            content: "•";
+            color: var(--gold);
+            font-size: 1.5rem;
+            line-height: 1;
+        }
+
+        .stats {
+            display: grid;
+            grid-template-columns: repeat(3, minmax(0, 1fr));
+            gap: 14px;
+            margin-top: 26px;
+        }
+
+        .stat-box {
+            background: rgba(255,255,255,0.34);
+            border: 1px solid var(--line);
+            border-radius: 18px;
+            padding: 18px 14px;
+            text-align: center;
+        }
+
+        .stat-box strong {
+            display: block;
+            font-size: 1.7rem;
+            color: var(--accent-deep);
+            margin-bottom: 8px;
+            font-family: 'Cormorant Garamond', serif;
+        }
+
+        .stat-box span {
+            font-size: 0.78rem;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            color: var(--muted);
+        }
+
+        .section-title {
+            margin-top: 70px;
+            margin-bottom: 26px;
+        }
+
+        .section-title h2 {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: clamp(2.5rem, 4vw, 4rem);
+            font-weight: 600;
+            letter-spacing: -0.04em;
+            margin-bottom: 8px;
+        }
+
+        .section-title p {
+            max-width: 640px;
+            color: var(--muted);
+            line-height: 1.8;
+        }
+
+        .audience-grid {
+            display: grid;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: 20px;
+            margin-bottom: 30px;
+        }
+
+        .audience-card {
+            background: rgba(255,255,255,0.38);
+            border: 1px solid var(--line);
+            border-radius: 24px;
+            padding: 24px;
+            box-shadow: 0 12px 25px rgba(58, 42, 31, 0.05);
+            animation: fadeRise 0.8s ease both;
+        }
+
+        .audience-card .label {
+            display: inline-block;
+            padding: 8px 12px;
+            border-radius: 999px;
+            background: rgba(122, 75, 53, 0.08);
+            color: var(--accent-deep);
+            border: 1px solid rgba(122, 75, 53, 0.14);
+            margin-bottom: 16px;
+            font-size: 0.72rem;
+            text-transform: uppercase;
+            letter-spacing: 0.12em;
+            font-weight: 700;
+        }
+
+        .audience-card h3 {
+            font-size: clamp(1.5rem, 3vw, 2rem);
+            font-family: 'Cormorant Garamond', serif;
+            margin-bottom: 10px;
+            font-weight: 600;
+        }
+
+        .audience-card p {
+            color: var(--muted);
+            line-height: 1.8;
+        }
+
+        .filters {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin: 16px 0 28px;
+        }
+
+        .filter-btn {
+            border: 1px solid var(--line);
+            background: rgba(255,255,255,0.3);
+            color: var(--text);
+            padding: 10px 16px;
+            border-radius: 999px;
+            cursor: pointer;
+            transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.2s ease, color 0.2s ease;
+            font-weight: 600;
+        }
+
+        .filter-btn.active,
+        .filter-btn:hover {
+            background: var(--accent-deep);
+            color: white;
+            border-color: transparent;
+            box-shadow: 0 12px 25px rgba(86, 51, 39, 0.18);
+            transform: translateY(-1px);
+        }
+
+        .books-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(270px, 1fr));
+            gap: 22px;
+        }
+
+        .spotlight {
+            margin: 18px 0 28px;
+        }
+
+        .spotlight-panel {
+            display: grid;
+            grid-template-columns: 1.4fr 0.6fr;
+            gap: 20px;
+            background: linear-gradient(135deg, rgba(255,255,255,0.6), rgba(255,255,255,0.35));
+            border: 1px solid var(--line);
+            border-radius: 28px;
+            padding: 26px;
+            box-shadow: 0 20px 35px rgba(58, 42, 31, 0.07);
+        }
+
+        .author-note {
+            display: grid;
+            grid-template-columns: 1.2fr 0.8fr;
+            gap: 20px;
+            margin: 8px 0 30px;
+        }
+
+        .note-panel,
+        .detail-panel {
+            background: rgba(255,255,255,0.36);
+            border: 1px solid var(--line);
+            border-radius: 24px;
+            padding: 24px;
+            box-shadow: 0 18px 35px rgba(58, 42, 31, 0.05);
+        }
+
+        .note-panel h3,
+        .detail-panel h3 {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: clamp(2rem, 3vw, 2.8rem);
+            margin-bottom: 10px;
+            line-height: 1;
+        }
+
+        .note-panel p,
+        .detail-panel p {
+            color: var(--muted);
+            line-height: 1.8;
+        }
+
+        .detail-panel {
+            background: linear-gradient(135deg, rgba(122, 75, 53, 0.08), rgba(255,255,255,0.32));
+        }
+
+        .detail-panel .detail-list {
+            list-style: none;
+            margin-top: 16px;
+            display: grid;
+            gap: 12px;
+        }
+
+        .detail-panel .detail-list li {
+            display: flex;
+            justify-content: space-between;
+            gap: 12px;
+            padding-bottom: 10px;
+            border-bottom: 1px solid rgba(122, 75, 53, 0.08);
+            color: var(--text);
+        }
+
+        .detail-panel .detail-list span:first-child {
+            color: var(--muted);
+            font-size: 0.76rem;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+        }
+
+        .spotlight-copy h3 {
+            font-size: clamp(2.2rem, 4vw, 3rem);
+            font-family: 'Cormorant Garamond', serif;
+            line-height: 1;
+            margin-bottom: 14px;
+        }
+
+        .spotlight-meta {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-bottom: 16px;
+        }
+
+        .spotlight-meta span {
+            border-radius: 999px;
+            padding: 7px 10px;
+            background: rgba(122, 75, 53, 0.07);
+            border: 1px solid rgba(122, 75, 53, 0.12);
+            font-size: 0.72rem;
+            color: var(--accent-deep);
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+        }
+
+        .spotlight-copy p {
+            color: var(--muted);
+            line-height: 1.8;
+        }
+
+        .spotlight-details {
+            display: grid;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: 14px;
+            margin-top: 18px;
+        }
+
+        .spotlight-details div {
+            background: rgba(255,255,255,0.26);
+            border: 1px solid rgba(122, 75, 53, 0.08);
+            border-radius: 16px;
+            padding: 12px 14px;
+            display: flex;
+            flex-direction: column;
+            gap: 6px;
+        }
+
+        .spotlight-details strong {
+            font-size: 0.68rem;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            color: var(--muted);
+        }
+
+        .spotlight-art {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .spotlight-art-inner {
+            width: min(220px, 100%);
+            aspect-ratio: 3 / 4;
+            border-radius: 24px;
+            background: linear-gradient(180deg, rgba(122, 75, 53, 0.18), rgba(200, 155, 99, 0.62));
+            border: 1px solid rgba(122, 75, 53, 0.15);
+            box-shadow: inset 0 0 25px rgba(255,255,255,0.25);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            color: var(--accent-deep);
+            text-transform: uppercase;
+            letter-spacing: 0.12em;
+        }
+
+        .spotlight-art-inner span {
+            font-size: 0.7rem;
+        }
+
+        .spotlight-art-inner strong {
+            font-size: clamp(3rem, 6vw, 4rem);
+            font-family: 'Cormorant Garamond', serif;
+            letter-spacing: -0.08em;
+        }
+
+        @keyframes fadeRise {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes softGlow {
+            0%, 100% {
+                box-shadow: 0 0 0 rgba(122, 75, 53, 0.0);
+            }
+            50% {
+                box-shadow: 0 0 18px rgba(122, 75, 53, 0.08);
+            }
+        }
+
+        .book-card {
+            background: rgba(255,255,255,0.36);
+            border: 1px solid var(--line);
+            border-radius: 24px;
+            overflow: hidden;
+            transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
+            display: flex;
+            flex-direction: column;
+            cursor: pointer;
+            animation: fadeRise 0.6s ease both;
+        }
+
+        .book-card:hover {
+            transform: translateY(-5px);
+            border-color: rgba(122, 75, 53, 0.2);
+            box-shadow: 0 18px 35px rgba(58, 42, 31, 0.08);
+        }
+
+        .book-card.selected {
+            border-color: rgba(122, 75, 53, 0.35);
+            box-shadow: 0 18px 35px rgba(122, 75, 53, 0.12);
+            animation: softGlow 1.4s ease-in-out infinite;
+        }
+
+        .book-cover,
+        .book-content {
+            transition: transform 0.25s ease, filter 0.25s ease;
+        }
+
+        .book-card:hover .book-cover,
+        .book-card:hover .book-content {
+            transform: translateY(-1px);
+        }
+
+        .book-card.hidden {
+            display: none;
+        }
+
+        .book-cover {
+            min-height: 190px;
+            display: flex;
+            align-items: flex-start;
+            justify-content: flex-start;
+            padding: 18px;
+            position: relative;
+        }
+
+        .book-cover.cover-1 {
+            background: linear-gradient(135deg, rgba(122, 75, 53, 0.22), rgba(200, 155, 99, 0.55));
+        }
+
+        .book-cover.cover-2 {
+            background: linear-gradient(135deg, rgba(143, 155, 130, 0.28), rgba(198, 157, 111, 0.55));
+        }
+
+        .book-cover.cover-3 {
+            background: linear-gradient(135deg, rgba(86, 51, 39, 0.24), rgba(181, 146, 104, 0.55));
+        }
+
+        .book-cover.cover-4 {
+            background: linear-gradient(135deg, rgba(117, 100, 82, 0.24), rgba(208, 182, 147, 0.55));
+        }
+
+        .cover-tag {
+            padding: 7px 10px;
+            border-radius: 999px;
+            font-size: 0.68rem;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            font-weight: 700;
+            background: rgba(255,255,255,0.35);
+            border: 1px solid rgba(255,255,255,0.35);
+            color: var(--accent-deep);
+        }
+
+        .book-content {
+            padding: 20px 18px 18px;
+            display: flex;
+            flex-direction: column;
+            gap: 14px;
+            flex: 1;
+        }
+
+        .book-meta {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+        }
+
+        .book-meta span {
+            font-size: 0.72rem;
+            padding: 6px 10px;
+            border-radius: 999px;
+            background: rgba(122, 75, 53, 0.06);
+            border: 1px solid rgba(122, 75, 53, 0.12);
+            color: var(--accent-deep);
+        }
+
+        .book-content h3 {
+            font-size: 1.6rem;
+            font-weight: 700;
+            font-family: 'Cormorant Garamond', serif;
+            line-height: 1;
+        }
+
+        .book-description {
+            color: var(--muted);
+            line-height: 1.7;
+            font-size: 0.96rem;
+        }
+
+        .book-details {
+            display: grid;
+            grid-template-columns: repeat(3, minmax(0, 1fr));
+            gap: 10px;
+        }
+
+        .book-details div {
+            background: rgba(255,255,255,0.22);
+            border-radius: 12px;
+            padding: 10px 9px;
+            border: 1px solid rgba(122, 75, 53, 0.08);
+            min-height: 72px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .book-details strong {
+            display: block;
+            font-size: 0.66rem;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            color: var(--muted);
+        }
+
+        .book-details span {
+            font-size: 0.8rem;
+            color: var(--text);
+            line-height: 1.45;
+        }
+
+        .book-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-top: auto;
+        }
+
+        .book-tags span {
+            border-radius: 999px;
+            padding: 6px 10px;
+            background: rgba(143, 155, 130, 0.1);
+            color: var(--accent-deep);
+            border: 1px solid rgba(143, 155, 130, 0.15);
+            font-size: 0.72rem;
+        }
+
+        .book-actions {
+            display: flex;
+            justify-content: flex-start;
+            margin-top: 2px;
+        }
+
+        .read-more {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            background: rgba(122, 75, 53, 0.06);
+            border: 1px solid rgba(122, 75, 53, 0.12);
+            color: var(--accent-deep);
+            border-radius: 999px;
+            padding: 8px 12px;
+            font-size: 0.76rem;
+            font-weight: 700;
+            letter-spacing: 0.05em;
+            text-transform: uppercase;
+            cursor: pointer;
+            font-family: 'Inter', sans-serif;
+            appearance: none;
+            -webkit-appearance: none;
+            transition: transform 0.25s ease, background 0.25s ease, box-shadow 0.25s ease;
+        }
+
+        .read-more:hover {
+            transform: translateY(-2px);
+            background: rgba(122, 75, 53, 0.12);
+            box-shadow: 0 10px 18px rgba(122, 75, 53, 0.1);
+        }
+
+        .footer {
+            margin-top: 70px;
+            text-align: center;
+            color: var(--muted);
+            border-top: 1px solid var(--line);
+            padding-top: 28px;
+            font-size: 0.86rem;
+        }
+
+        @media (max-width: 840px) {
+            .page-shell {
+                padding-top: 18px;
+            }
+
+            .hero,
+            .audience-grid,
+            .spotlight-panel,
+            .author-note {
+                grid-template-columns: 1fr;
+            }
+
+            .topbar {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 18px;
+            }
+
+            .nav {
+                width: 100%;
+                justify-content: flex-start;
+                gap: 12px 16px;
+            }
+
+            .hero {
+                padding-top: 42px;
+            }
+
+            .stats {
+                grid-template-columns: repeat(3, minmax(0, 1fr));
+            }
+        }
+
+        @media (max-width: 520px) {
+            .page-shell {
+                padding-left: 16px;
+                padding-right: 16px;
+            }
+
+            .brand {
+                font-size: 0.78rem;
+                letter-spacing: 0.06em;
+            }
+
+            .brand-mark {
+                width: 32px;
+                height: 32px;
+            }
+
+            .nav {
+                flex-wrap: wrap;
+            }
+
+            .nav a {
+                font-size: 0.82rem;
+            }
+
+            .nav-cta,
+            .primary-btn,
+            .secondary-btn {
+                width: 100%;
+                justify-content: center;
+                text-align: center;
+            }
+
+            .hero-actions {
+                flex-direction: column;
+                align-items: stretch;
+            }
+
+            .stats,
+            .book-details,
+            .spotlight-details {
+                grid-template-columns: 1fr;
+            }
+
+            .section-title {
+                margin-top: 54px;
+            }
+
+            .book-content h3 {
+                font-size: 1.5rem;
+            }
+
+            .spotlight-copy h3 {
+                font-size: 2.4rem;
+            }
+
+            .hero-card,
+            .audience-card,
+            .note-panel,
+            .detail-panel,
+            .spotlight-panel {
+                border-radius: 20px;
+            }
+        }
+    </style>
+</head>
+<body class="loading">
+    <div id="loader">
+        <h1>Lux Stella</h1>
+    </div>
+
+    <div class="page-shell">
+        <header class="topbar">
+            <div class="brand">
+                <div class="brand-mark">A</div>
+                <span>Atanasius</span>
+            </div>
+            <nav class="nav" aria-label="Main navigation">
+                <a href="index.html">Portfolio</a>
+                <a href="books.html">Books</a>
+                <a href="#works">Works</a>
+                <a class="nav-cta" href="index.html#contact">Contact</a>
+            </nav>
+        </header>
+
+        <main>
+            <section class="hero">
+                <div>
+                    <p class="eyebrow">Written Works</p>
+                    <h1>Stories with a quiet voice, and a far-reaching heart.</h1>
+                    <p>
+                        Saya menulis untuk menjangkau pembaca yang mencari kedalaman emosi, makna hidup, dan pengalaman manusia yang terasa dekat, baik dari sudut pandang Indonesia maupun audiens global.
+                    </p>
+                    <div class="hero-actions">
+                        <a class="primary-btn" href="#works">Explore Books</a>
+                        <a class="secondary-btn" href="index.html">Back to Portfolio</a>
+                    </div>
+                </div>
+
+                <aside class="hero-card">
+                    <div class="mini-title">Writing Focus</div>
+                    <div class="quote">“Menulis bukan hanya soal cerita, tapi soal rasa yang bertahan.”</div>
+                    <ul>
+                        <li>Indonesia-focused emotional storytelling</li>
+                        <li>Universal themes for international readers</li>
+                        <li>Ongoing projects and finished works</li>
+                    </ul>
+                </aside>
+            </section>
+
+            <div class="stats" aria-label="Book statistics">
+                <div class="stat-box">
+                    <strong>4</strong>
+                    <span>Featured works</span>
+                </div>
+                <div class="stat-box">
+                    <strong>2</strong>
+                    <span>Indonesia</span>
+                </div>
+                <div class="stat-box">
+                    <strong>2</strong>
+                    <span>International</span>
+                </div>
+            </div>
+
+            <section class="section-title" id="works">
+                <p class="eyebrow">Curated selection</p>
+                <h2>Books & Stories</h2>
+                <p>
+                    Setiap karya memiliki arah yang berbeda. Ada yang lebih dekat dengan pembaca Indonesia, dan ada yang dibangun untuk menjangkau pembaca internasional dengan tema yang universal.
+                </p>
+            </section>
+
+            <section aria-label="Audience overview">
+                <div class="audience-grid">
+                    <article class="audience-card">
+                        <span class="label">Indonesia</span>
+                        <h3>For local readers</h3>
+                        <p>
+                            Karya-karya ini cenderung berakar pada konteks sosial, budaya, dan emosi yang akrab dengan pembaca Indonesia. Mereka terasa dekat, hidup, dan personal.
+                        </p>
+                    </article>
+
+                    <article class="audience-card">
+                        <span class="label">International</span>
+                        <h3>For global readers</h3>
+                        <p>
+                            Karya-karya ini menonjolkan tema yang lebih universal seperti kehilangan, identitas, harapan, dan makna hidup yang bisa diterima oleh pembaca lintas budaya.
+                        </p>
+                    </article>
+                </div>
+            </section>
+
+            <section class="author-note" aria-label="Author note and book detail overview">
+                <article class="note-panel">
+                    <p class="eyebrow">Author note</p>
+                    <h3>Why I write</h3>
+                    <p>
+                        Saya menulis bukan hanya untuk menceritakan kisah, tetapi untuk menangkap emosi yang sering terlupakan. Saya percaya setiap buku punya jantungnya sendiri: ada yang lahir dari rumah, ada yang lahir dari rasa asing, dan ada yang lahir dari pertanyaan tentang siapa diri kita ketika dunia mulai berubah.
+                    </p>
+                </article>
+
+                <aside class="detail-panel">
+                    <p class="eyebrow">Selected focus</p>
+                    <h3 id="detail-title">Seluruh Jalan Menuju Rumah</h3>
+                    <ul class="detail-list">
+                        <li><span>Audience</span><strong id="detail-audience">Indonesia</strong></li>
+                        <li><span>Status</span><strong id="detail-status">Ongoing</strong></li>
+                        <li><span>Genre</span><strong id="detail-genre">Drama / Social</strong></li>
+                    </ul>
+                </aside>
+            </section>
+
+            <section class="spotlight" id="spotlight" aria-label="Featured written work">
+                <div class="spotlight-panel">
+                    <div class="spotlight-copy">
+                        <p class="eyebrow">Featured project</p>
+                        <h3 id="spotlight-title">Seluruh Jalan Menuju Rumah</h3>
+                        <div class="spotlight-meta">
+                            <span id="spotlight-audience">Indonesia</span>
+                            <span id="spotlight-status">Ongoing</span>
+                            <span id="spotlight-genre">Drama / Social</span>
+                        </div>
+                        <p id="spotlight-summary">
+                            Sebuah kisah tentang luka keluarga, pencarian diri, dan perjalanan pulang yang terasa sangat dekat dengan kehidupan sehari-hari.
+                        </p>
+                        <div class="spotlight-details">
+                            <div>
+                                <strong>Started</strong>
+                                <span id="spotlight-start">Jan 2025</span>
+                            </div>
+                            <div>
+                                <strong>Theme</strong>
+                                <span id="spotlight-theme">Homecoming, identity, healing</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="spotlight-art">
+                        <div class="spotlight-art-inner">
+                            <span>Book</span>
+                            <strong>01</strong>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <div class="filters" aria-label="Book filter buttons">
+                <button class="filter-btn active" data-filter="all">All</button>
+                <button class="filter-btn" data-filter="indonesia">Indonesia</button>
+                <button class="filter-btn" data-filter="international">International</button>
+                <button class="filter-btn" data-filter="ongoing">Ongoing</button>
+                <button class="filter-btn" data-filter="completed">Completed</button>
+            </div>
+
+            <section class="books-grid" aria-label="List of written books">
+                <article class="book-card selected" data-title="Seluruh Jalan Menuju Rumah" data-audience="Indonesia" data-status="Ongoing" data-genre="Drama / Social" data-start="Jan 2025" data-theme="Homecoming, identity, healing" data-summary="Sebuah kisah tentang luka keluarga, pencarian diri, dan perjalanan pulang yang terasa sangat dekat dengan kehidupan sehari-hari." data-order="01">
+                    <div class="book-cover cover-1">
+                        <span class="cover-tag">Indonesia</span>
+                    </div>
+                    <div class="book-content">
+                        <div class="book-meta">
+                            <span>Drama</span>
+                            <span>Ongoing</span>
+                        </div>
+                        <h3>Seluruh Jalan Menuju Rumah</h3>
+                        <p class="book-description">Kisah tentang luka keluarga, pencarian diri, dan perjalanan pulang yang terasa sangat dekat dengan kehidupan sehari-hari.</p>
+                        <div class="book-details">
+                            <div>
+                                <strong>Started</strong>
+                                <span>Jan 2025</span>
+                            </div>
+                            <div>
+                                <strong>Audience</strong>
+                                <span>Indonesia</span>
+                            </div>
+                            <div>
+                                <strong>Genre</strong>
+                                <span>Drama / Social</span>
+                            </div>
+                        </div>
+                        <div class="book-tags">
+                            <span>Relatable</span>
+                            <span>Family</span>
+                            <span>Emotional</span>
+                        </div>
+                        <div class="book-actions">
+                            <button type="button" class="read-more"><i class="fas fa-arrow-right"></i> Read more</button>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="book-card" data-title="Letters Between the Ashes" data-audience="International" data-status="Completed" data-genre="Fantasy / Emotional" data-start="Aug 2023" data-theme="Loss, hope, continuity" data-summary="Cerita tentang kehilangan, harapan, dan makna keberlanjutan manusia yang dibangun lewat dunia penuh kenangan dan masa depan." data-order="02">
+                    <div class="book-cover cover-2">
+                        <span class="cover-tag">International</span>
+                    </div>
+                    <div class="book-content">
+                        <div class="book-meta">
+                            <span>Fantasy</span>
+                            <span>Completed</span>
+                        </div>
+                        <h3>Letters Between the Ashes</h3>
+                        <p class="book-description">Cerita tentang kehilangan, harapan, dan makna keberlanjutan manusia yang dibangun lewat dunia penuh kenangan dan masa depan.</p>
+                        <div class="book-details">
+                            <div>
+                                <strong>Started</strong>
+                                <span>Aug 2023</span>
+                            </div>
+                            <div>
+                                <strong>Audience</strong>
+                                <span>International</span>
+                            </div>
+                            <div>
+                                <strong>Genre</strong>
+                                <span>Fantasy / Emotional</span>
+                            </div>
+                        </div>
+                        <div class="book-tags">
+                            <span>Hope</span>
+                            <span>Poetic</span>
+                            <span>Universal</span>
+                        </div>
+                        <div class="book-actions">
+                            <button type="button" class="read-more"><i class="fas fa-arrow-right"></i> Read more</button>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="book-card" data-title="Di Antara Kota dan Kenangan" data-audience="Indonesia" data-status="Ongoing" data-genre="Coming-of-age" data-start="Mar 2024" data-theme="Identity, growth, urban life" data-summary="Perjalanan menuju kedewasaan yang dibangun dari luka, proses menemukan jati diri, dan keputusan yang tak mudah di tengah kota." data-order="03">
+                    <div class="book-cover cover-3">
+                        <span class="cover-tag">Indonesia</span>
+                    </div>
+                    <div class="book-content">
+                        <div class="book-meta">
+                            <span>Coming-of-age</span>
+                            <span>Ongoing</span>
+                        </div>
+                        <h3>Di Antara Kota dan Kenangan</h3>
+                        <p class="book-description">Perjalanan menuju kedewasaan yang dibangun dari luka, proses menemukan jati diri, dan keputusan yang tak mudah di tengah kota.</p>
+                        <div class="book-details">
+                            <div>
+                                <strong>Started</strong>
+                                <span>Mar 2024</span>
+                            </div>
+                            <div>
+                                <strong>Audience</strong>
+                                <span>Indonesia</span>
+                            </div>
+                            <div>
+                                <strong>Genre</strong>
+                                <span>Coming-of-age</span>
+                            </div>
+                        </div>
+                        <div class="book-tags">
+                            <span>Identity</span>
+                            <span>Growth</span>
+                            <span>Urban</span>
+                        </div>
+                        <div class="book-actions">
+                            <button type="button" class="read-more"><i class="fas fa-arrow-right"></i> Read more</button>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="book-card" data-title="Fragments of a Quiet Human" data-audience="International" data-status="Ongoing" data-genre="Philosophy / Fiction" data-start="Nov 2024" data-theme="Meaning, loneliness, existence" data-summary="Karya yang mengeksplorasi pertanyaan tentang makna hidup, kebebasan, dan keberadaan manusia dalam dunia yang cepat berubah." data-order="04">
+                    <div class="book-cover cover-4">
+                        <span class="cover-tag">International</span>
+                    </div>
+                    <div class="book-content">
+                        <div class="book-meta">
+                            <span>Philosophy</span>
+                            <span>Ongoing</span>
+                        </div>
+                        <h3>Fragments of a Quiet Human</h3>
+                        <p class="book-description">Karya yang mengeksplorasi pertanyaan tentang makna hidup, kebebasan, dan keberadaan manusia dalam dunia yang cepat berubah.</p>
+                        <div class="book-details">
+                            <div>
+                                <strong>Started</strong>
+                                <span>Nov 2024</span>
+                            </div>
+                            <div>
+                                <strong>Audience</strong>
+                                <span>International</span>
+                            </div>
+                            <div>
+                                <strong>Genre</strong>
+                                <span>Philosophy / Fiction</span>
+                            </div>
+                        </div>
+                        <div class="book-tags">
+                            <span>Meaning</span>
+                            <span>Reflection</span>
+                            <span>Existential</span>
+                        </div>
+                        <div class="book-actions">
+                            <button type="button" class="read-more"><i class="fas fa-arrow-right"></i> Read more</button>
+                        </div>
+                    </div>
+                </article>
+            </section>
+
+            <section class="section-title" aria-label="Writing journey timeline">
+                <p class="eyebrow">Writing journey</p>
+                <h2>How the stories grow</h2>
+            </section>
+
+            <section class="journey" style="display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:18px;margin-top:10px;">
+                <article class="audience-card" style="padding:18px;">
+                    <span class="label">01</span>
+                    <h3 style="font-size:1.6rem;">Idea</h3>
+                    <p>Awal dari rasa ingin memahami manusia, tempat, dan luka yang sering tidak kebetulan muncul.</p>
+                </article>
+                <article class="audience-card" style="padding:18px;">
+                    <span class="label">02</span>
+                    <h3 style="font-size:1.6rem;">Draft</h3>
+                    <p>Menulis awal dengan gaya yang belum sempurna, tetapi tetap membawa inti emosi dan arah cerita.</p>
+                </article>
+                <article class="audience-card" style="padding:18px;">
+                    <span class="label">03</span>
+                    <h3 style="font-size:1.6rem;">Revision</h3>
+                    <p>Memangkas bagian yang tidak perlu, memperkuat nada, dan menjaga agar makna tetap hidup.</p>
+                </article>
+                <article class="audience-card" style="padding:18px;">
+                    <span class="label">04</span>
+                    <h3 style="font-size:1.6rem;">Publication</h3>
+                    <p>Menyiapkan karya agar siap dibaca, dipahami, dan diterima oleh audiens yang tepat.</p>
+                </article>
+            </section>
+        </main>
+
+        <footer class="footer">
+            © 2026 Atanasius Reynaldi — Writing, building, and imagining.
+        </footer>
+    </div>
+
+    <script>
+        const buttons = document.querySelectorAll('.filter-btn');
+        const cards = document.querySelectorAll('.book-card');
+        const readMoreButtons = document.querySelectorAll('.read-more');
+        const spotlightTitle = document.getElementById('spotlight-title');
+        const spotlightAudience = document.getElementById('spotlight-audience');
+        const spotlightStatus = document.getElementById('spotlight-status');
+        const spotlightGenre = document.getElementById('spotlight-genre');
+        const spotlightSummary = document.getElementById('spotlight-summary');
+        const spotlightStart = document.getElementById('spotlight-start');
+        const spotlightTheme = document.getElementById('spotlight-theme');
+        const spotlightArtNumber = document.querySelector('.spotlight-art-inner strong');
+        const detailTitle = document.getElementById('detail-title');
+        const detailAudience = document.getElementById('detail-audience');
+        const detailStatus = document.getElementById('detail-status');
+        const detailGenre = document.getElementById('detail-genre');
+        const spotlightSection = document.getElementById('spotlight');
+
+        function updateSpotlight(card) {
+            const title = card.dataset.title;
+            const audience = card.dataset.audience;
+            const status = card.dataset.status;
+            const genre = card.dataset.genre;
+            const start = card.dataset.start;
+            const theme = card.dataset.theme;
+            const summary = card.dataset.summary;
+            const order = card.dataset.order;
+
+            spotlightTitle.textContent = title;
+            spotlightAudience.textContent = audience;
+            spotlightStatus.textContent = status;
+            spotlightGenre.textContent = genre;
+            spotlightSummary.textContent = summary;
+            spotlightStart.textContent = start;
+            spotlightTheme.textContent = theme;
+            spotlightArtNumber.textContent = order;
+
+            detailTitle.textContent = title;
+            detailAudience.textContent = audience;
+            detailStatus.textContent = status;
+            detailGenre.textContent = genre;
+
+            cards.forEach(item => item.classList.toggle('selected', item === card));
+        }
+
+        cards.forEach(card => {
+            card.addEventListener('click', () => updateSpotlight(card));
+        });
+
+        readMoreButtons.forEach(button => {
+            button.addEventListener('click', (event) => {
+                event.stopPropagation();
+                const card = button.closest('.book-card');
+                if (!card) return;
+
+                updateSpotlight(card);
+                spotlightSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            });
+        });
+
+        buttons.forEach(button => {
+            button.addEventListener('click', () => {
+                const filter = button.dataset.filter;
+
+                buttons.forEach(btn => btn.classList.toggle('active', btn === button));
+
+                cards.forEach(card => {
+                    const audience = card.dataset.audience.toLowerCase();
+                    const status = card.dataset.status.toLowerCase();
+                    const matches = filter === 'all'
+                        ? true
+                        : filter === audience || filter === status;
+
+                    card.classList.toggle('hidden', !matches);
+                });
+            });
+        });
+
+        window.addEventListener('load', () => {
+            const loader = document.getElementById('loader');
+            setTimeout(() => {
+                loader.classList.add('hidden');
+                document.body.classList.remove('loading');
+            }, 1200);
+        });
+    </script>
+</body>
+</html>
